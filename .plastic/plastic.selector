@@ -1,0 +1,4 @@
+repository "Quete5@xin0m@cloud"
+  path "/"
+    br "/main"
+    co "/main"
