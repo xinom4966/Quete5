@@ -40,6 +40,11 @@ public class Weapon : MonoBehaviour
 
     private void StateHandler()
     {
+        switch (Input.GetMouseButtonDown(0))
+        {
+            case true: state=MovementState.shooting; break;
+            default: state=MovementState.normal; break;
+        }
         if (Input.GetMouseButton(0))
         {
             state = MovementState.shooting;
