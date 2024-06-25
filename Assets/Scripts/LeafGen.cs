@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ public class LeafGen : MonoBehaviour
     float maxY = 3f;
     public List<GameObject> pyramids;
     [SerializeField] public GameObject pyramid;
-    // Start is called before the first frame update
+
     void Start()
     {
         while (x <= 100)
@@ -19,12 +18,6 @@ public class LeafGen : MonoBehaviour
             pyramids[pyramids.Count - 1].transform.position = new Vector3(-75 + x, y,-20);
             x++;
         }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 }
