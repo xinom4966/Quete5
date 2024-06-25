@@ -82,12 +82,12 @@ public class PlayerMovement : MonoBehaviour
             Jump();
             Invoke(nameof(ResetJump), jumpCoolDown);
         }
-        if (Input.GetKeyDown(crouchKey))
+        if (Input.GetKeyDown(crouchKey) && isGrounded)
         {
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
             rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
         }
-        if (Input.GetKeyUp(crouchKey))
+        if (Input.GetKeyUp(crouchKey) && isGrounded)
         {
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
         }
@@ -101,12 +101,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void StateHandler()
     {
-        if (Input.GetKey(crouchKey))
+        if (isGrounded && Input.GetKey(crouchKey))
         {
             state = MovementState.crouching;
             moveSpeed = crouchSpeed;
         }
-        if (isGrounded && Input.GetKey(sprintKey))
+        else if (isGrounded && Input.GetKey(sprintKey))
         {
             state = MovementState.sprinting;
             moveSpeed = sprintSpeed;
