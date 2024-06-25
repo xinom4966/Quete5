@@ -9,12 +9,13 @@ public class Weapon : MonoBehaviour
     public Transform orientation;
     public float rotationX, rotationY;
     public MovementState state;
+
     public enum MovementState
     {
         normal,
         shooting
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -65,7 +66,7 @@ public class Weapon : MonoBehaviour
             {
                 if (hit.rigidbody != null)
                 {
-                    hit.rigidbody.velocity += orientation.forward*10;
+                    hit.rigidbody.velocity += orientation.forward * 10;
                 }
             }
             state = MovementState.normal;
